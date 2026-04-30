@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeFit Tracker</title>
+</head>
+<body>
+  <main id="landingPage" class="landing">
+    <section class="landing-card">
+      <div class="landing-grid">
+        <div class="landing-copy">
+          <div class="eyebrow">🏠 HomeFit Tracker</div>
+          <h1>Mulai latihan hari ini.</h1>
+          <p>Pilih profil yang akan latihan, lalu sistem akan menyiapkan rekomendasi gerakan sesuai alat, waktu, dan progres terakhir.</p>
+        </div>
+
+        <div class="user-panel">
+          <button class="profile-card yosafat" type="button" data-user-id="yosafat">
+            <div class="gender-icon" data-icon="male"></div>
+            <h2>Yosafat</h2>
+          </button>
+
+          <button class="profile-card rahel" type="button" data-user-id="rahel">
+            <div class="gender-icon" data-icon="female"></div>
+            <h2>Rahel</h2>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main id="appPage" class="container hidden">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon" id="brandIcon"></div>
+        <div>
+          <h2 id="brandTitle">HomeFit</h2>
+          <span id="brandSubtitle">Workout tracker</span>
+        </div>
+      </div>
+      <button class="switch-btn" id="backButton" type="button">← Ganti User</button>
+    </header>
+
+    <section class="layout">
+      <aside class="card">
+        <h3>Atur Latihan</h3>
+
+        <label>Level</label>
+        <select id="levelInput">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+
+        <label>Alat</label>
+        <div id="equipmentOptions" class="checkbox-grid"></div>
+
+        <label>Piringan / Beban yang tersedia</label>
+        <div id="plateOptions" class="checkbox-grid"></div>
+
+        <label>Pilih latihan</label>
+        <select id="muscleGroupInput"></select>
+
+        <label>Waktu</label>
+        <select id="durationInput">
+          <option value="20">20 menit</option>
+          <option value="30">30 menit</option>
+          <option value="45" selected>45 menit</option>
+          <option value="60">60 menit</option>
+          <option value="75">75 menit</option>
+        </select>
+
+        <button class="primary-btn" id="generateButton" type="button">Generate Latihan</button>
+        <div id="statusBox" class="status">Pilih user untuk memuat data.</div>
+      </aside>
+
+      <section class="card">
+        <h3>Rekomendasi Hari Ini</h3>
+        <div id="summaryText" class="small">Belum generate.</div>
+        <div id="workoutList" class="workout-list" style="margin-top: 14px;">
+          <div class="empty">Latihan akan muncul di sini.</div>
+        </div>
+
+        <div id="saveBox" class="hidden" style="margin-top: 16px;">
+          <label>Catatan sesi</label>
+          <textarea id="sessionNote" placeholder="Opsional"></textarea>
+          <button class="primary-btn" id="saveButton" type="button">Simpan Progress</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="card" style="margin-top: 16px;">
+      <h3>Log Aktivitas</h3>
+      <button class="secondary-btn" id="refreshLogButton" type="button">Refresh Log</button>
+      <div id="logList" style="margin-top: 12px;">
+        <div class="empty">Belum ada log.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Made with love by Yosafat ♥</span>
+  </footer>
+
+  <div id="logModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h3 id="modalTitle">Detail Log</h3>
+          <div id="modalSubtitle" class="small">-</div>
+        </div>
+        <button class="modal-close" id="closeLogModalButton" type="button">×</button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="deleteLogModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="confirm-card">
+      <div class="confirm-icon">🗑️</div>
+      <h3>Hapus log latihan?</h3>
+      <p id="deleteLogText">Log yang dihapus tidak bisa dikembalikan.</p>
+      <div class="confirm-actions">
+        <button class="secondary-btn" id="cancelDeleteButton" type="button">Batal</button>
+        <button class="danger-btn" id="confirmDeleteButton" type="button">Ya, hapus</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
